@@ -3,7 +3,7 @@ const translations = {
     en: {
         'nav.about': 'About',
         'nav.skills': 'Skills',
-        'nav.experience': 'Experience',
+        'nav.education': 'Education',
         'nav.projects': 'Projects',
         'nav.contact': 'Contact',
         'hero.title': "Hello, I'm Matteo",
@@ -13,7 +13,7 @@ const translations = {
         'skills.dev': 'Development',
         'skills.tools': 'Tools & Others',
         'skills.personal': 'Personal',
-        'experience.title': 'Experience',
+        'education.title': 'Education',
         'exp1.title': 'Industrial Design Student',
         'exp1.company': 'at "Transilvania" University Of Brasov',
         'exp1.desc': 'My studies focus on developing skills in product design, creativity, and technical problem-solving, combining engineering principles with aesthetics to create functional and innovative products.',
@@ -34,7 +34,7 @@ const translations = {
     ro: {
         'nav.about': 'Despre',
         'nav.skills': 'Abilități',
-        'nav.experience': 'Experiență',
+        'nav.education': 'Educație',
         'nav.projects': 'Proiecte',
         'nav.contact': 'Contact',
         'hero.title': 'Salut, sunt Matteo',
@@ -44,7 +44,7 @@ const translations = {
         'skills.dev': 'Dezvoltare',
         'skills.tools': 'Instrumente & Altele',
         'skills.personal': 'Personale',
-        'experience.title': 'Experiență',
+        'education.title': 'Educație',
         'exp1.title': 'Student Design Industrial',
         'exp1.company': 'la Universitatea "Transilvania" Brașov',
         'exp1.desc': 'Studiile mele se concentrează pe dezvoltarea abilităților în design de produs, creativitate și rezolvarea problemelor tehnice, combinând principiile ingineresti cu estetica pentru a crea produse funcționale și inovatoare.',
@@ -274,3 +274,56 @@ mobileLangToggle.addEventListener('click', () => {
     updateLanguage(currentLang);
     syncLangToggle();
 });
+
+// ==================== ENTERTAINMENT FEATURES ====================
+
+// 1. Typewriter Effect for Subtitle
+const subtitle = document.querySelector('.subtitle');
+const originalText = subtitle.getAttribute('data-i18n');
+
+function typeWriter() {
+    const texts = {
+        en: 'A minimalistic portfolio',
+        ro: 'Un portofoliu minimal'
+    };
+    const text = texts[currentLang] || texts.en;
+    let i = 0;
+    subtitle.textContent = '';
+    subtitle.classList.add('typewriter-wrapper');
+    
+    const cursor = document.createElement('span');
+    cursor.className = 'typewriter-cursor';
+    
+    function type() {
+        if (i < text.length) {
+            subtitle.textContent = text.substring(0, i + 1);
+            subtitle.appendChild(cursor);
+            i++;
+            setTimeout(type, 80);
+        }
+    }
+    type();
+}
+
+// Run typewriter on load and on language change (DISABLED)
+// setTimeout(typeWriter, 1200);
+// const originalUpdateLanguage = updateLanguage;
+// updateLanguage = function(lang) {
+//     originalUpdateLanguage(lang);
+//     setTimeout(typeWriter, 150);
+// };
+
+// 2. Skill Tag Click Sparkle Effect
+document.querySelectorAll('.skill-tag').forEach(tag => {
+    tag.addEventListener('click', function() {
+        this.classList.remove('clicked');
+        void this.offsetWidth; // Trigger reflow
+        this.classList.add('clicked');
+        
+        setTimeout(() => {
+            this.classList.remove('clicked');
+        }, 500);
+    });
+});
+
+
