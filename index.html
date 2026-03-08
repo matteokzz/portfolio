@@ -3,294 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="responsive-template.css">
-    <style>
-        /* Color Palette:
-           - fb3640: Red
-           - 118ab2: Blue
-           - 073b4c: Dark Blue
-           - f5f5f5: White
-           - f05d5e: Coral/Red
-           - 191919: Carbon Black
-        */
-
-        /* Default: Dark Mode Styles */
-        body {
-            background-color: #191919;
-            color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Title Page Specific Styles */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #191919;
-        }
-
-        .hero-content {
-            text-align: center;
-            color: #f5f5f5;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-            color: #f5f5f5;
-        }
-
-        /* Phone Styles */
-        @media only screen and (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Laptop Styles */
-        @media only screen and (min-width: 577px) and (max-width: 1024px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* PC Styles */
-        @media only screen and (min-width: 1025px) {
-            .hero-title {
-                font-size: 4rem;
-            }
-        }
-
-        /* Dark Mode Toggle Button - Dark Mode (default) */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid #f5f5f5;
-            background-color: #333333;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            padding: 0;
-        }
-
-        .theme-toggle:hover {
-            background-color: #555555;
-            transform: scale(1.1);
-        }
-
-        .theme-toggle img {
-            display: block;
-            filter: invert(1) grayscale(1);
-        }
-
-        /* Light Mode Styles */
-        body.light-mode {
-            background-color: #f5f5f5;
-            color: #191919;
-        }
-
-        body.light-mode .hero-section {
-            background-color: #f5f5f5;
-        }
-
-        body.light-mode .hero-content {
-            color: #191919;
-        }
-
-        body.light-mode .hero-title {
-            color: #191919;
-        }
-
-        body.light-mode .theme-toggle {
-            border-color: #191919;
-            background-color: #cccccc;
-        }
-
-        body.light-mode .theme-toggle:hover {
-            background-color: #999999;
-            border-color: #191919;
-        }
-
-/* scrolling words */
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 0 100px;
-}
-
-h1 {
-  font-size: 64px;
-  font-weight: 700;
-  margin-right: 80px;
-}
-
-/* Scroll Snap Container */
-.list {
-  height: 140px;
-  overflow-y: auto;
- 
-  scroll-snap-type: y mandatory;
-scroll-behavior: smooth;
-
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Hide scrollbar (optional) */
-.list::-webkit-scrollbar {
-  display: none;
-}
-.list {
-  scrollbar-width: none;
-}
-
-/* Each word */
-.list li {
-  height: 140px;              /* must match container height */
-  display: flex;
-  align-items: center;
-
-  font-size: 64px;
-  font-weight: 600;
-
-  scroll-snap-align: center;
-
-  background-color: #f05d5e;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
-}
-
-/* Optional hover emphasis */
-.list li:hover {
-  opacity: 1;
-}
-
-/* Phone Styles */
-@media only screen and (max-width: 576px) {
-  .wrapper {
-    flex-direction: column;
-    padding: 0 20px;
-  }
-  
-  h1 {
-    font-size: 32px;
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-  
-  .list {
-    height: 70px;
-  }
-  
-  .list li {
-    height: 70px;
-    font-size: 32px;
-  }
-}
-
-/* Laptop Styles */
-@media only screen and (min-width: 577px) and (max-width: 1024px) {
-  .wrapper {
-    padding: 0 60px;
-  }
-  
-  h1 {
-    font-size: 48px;
-    margin-right: 50px;
-  }
-  
-  .list {
-    height: 100px;
-  }
-  
-  .list li {
-    height: 100px;
-    font-size: 48px;
-  }
-}
-
-/* PC/Desktop Styles */
-@media only screen and (min-width: 1025px) {
-  .wrapper {
-    padding: 0 100px;
-  }
-  
-  h1 {
-    font-size: 64px;
-    margin-right: 80px;
-  }
-  
-  .list {
-    height: 140px;
-  }
-  
-  .list li {
-    height: 140px;
-    font-size: 64px;
-  }
-}
-        
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
-        <img id="theme-icon" src="icons/sun.svg" alt="Theme Toggle" width="24" height="24">
-    </button>
-    <div class="wrapper">
-  <h1>You can</h1>
+    <nav class="navbar">
+        <button class="hamburger" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="lang-toggle" aria-label="Toggle language">
+                <span class="lang-en active">EN</span>
+                <span class="lang-sep">/</span>
+                <span class="lang-ro">RO</span>
+            </button>
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
 
-  <ul class="list">
-    <li>break.</li>
-    <li>learn.</li>
-    <li>debug.</li>
-    <li>refactor.</li>
-    <li>optimize.</li>
-    <li>deploy.</li>
-    <li>monitor.</li>
-  </ul>
-</div>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-buttons">
+            <button class="lang-toggle" aria-label="Toggle language">
+                <span class="lang-en active">EN</span>
+                <span class="lang-sep">/</span>
+                <span class="lang-ro">RO</span>
+            </button>
+            <button class="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+
+    <section id="about" class="section hero">
+        <div class="container">
+            <h1 data-i18n="hero.title">Hello, I'm Matteo</h1>
+            <p class="subtitle" data-i18n="hero.subtitle">A minimalistic portfolio</p>
+            <p class="description" data-i18n="hero.description">Welcome to my portfolio website. I create clean, functional, and beautiful digital experiences.</p>
+        </div>
     </section>
 
-    <script>
-        // Store theme preference
-        let isLightMode = false;
-        
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.getElementById('theme-icon');
-            
-            isLightMode = !isLightMode;
-            body.classList.toggle('light-mode');
-            
-            if (isLightMode) {
-                // Switch to light mode
-                icon.src = 'icons/moon.svg';
-            } else {
-                // Switch to dark mode
-                icon.src = 'icons/sun.svg';
-            }
-        }
-    </script>
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2 data-i18n="skills.title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 data-i18n="skills.dev">Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 data-i18n="skills.tools">Tools & Others</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Illustrator</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Premiere Pro</span>
+                        <span class="skill-tag">Lightroom</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 data-i18n="skills.personal">Personal</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Photography</span>
+                        <span class="skill-tag">Music Production</span>
+                        <span class="skill-tag">Photo & Video Editing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2 data-i18n="experience.title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="exp1.title">Industrial Design Student</h3>
+                        <p class="timeline-company" data-i18n="exp1.company">at "Transilvania" University Of Brasov</p>
+                        <p data-i18n="exp1.desc">My studies focus on developing skills in product design, creativity, and technical problem-solving, combining engineering principles with aesthetics to create functional and innovative products.</p>
+                        <a href="https://www.unitbv.ro/" target="_blank" class="timeline-button" data-i18n="common.website">Visit Website</a>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date"> Sep 2020 - Jun 2024</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="exp2.title">Mathematics & Computer Science</h3>
+                        <p class="timeline-company" data-i18n="exp2.company">at "Edmond Nicolau" Technical College</p>
+                        <p data-i18n="exp2.desc">During this time, I developed strong analytical and problem-solving skills, with a focus on mathematics, computer science, and logical thinking.</p>
+                        <a href="https://cten.ro/" target="_blank" class="timeline-button" data-i18n="common.website">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 data-i18n="projects.title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 data-i18n="project1.title">Project One</h3>
+                    <p data-i18n="project1.desc">A minimalistic design project showcasing clean aesthetics and functionality.</p>
+                </div>
+                <div class="project-card">
+                    <h3 data-i18n="project2.title">Project Two</h3>
+                    <p data-i18n="project2.desc">An innovative solution built with modern technologies and best practices.</p>
+                </div>
+                <div class="project-card">
+                    <h3 data-i18n="project3.title">Project Three</h3>
+                    <p data-i18n="project3.desc">A creative endeavor that pushes the boundaries of design and technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 data-i18n="contact.title">Get In Touch</h2>
+            <p data-i18n="contact.text">Feel free to reach out for collaborations or just a friendly hello.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/matteokzz" target="_blank" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/matteo-mihaescu-84114937b/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:mihaescumatteo@email.com" class="social-icon" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Matteo. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
