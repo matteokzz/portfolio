@@ -136,21 +136,48 @@
         <div class="container">
             <h2 data-i18n="projects.title">Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-project="1">
                     <h3 data-i18n="project1.title">Project One</h3>
                     <p data-i18n="project1.desc">A minimalistic design project showcasing clean aesthetics and functionality.</p>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-project="2">
                     <h3 data-i18n="project2.title">Project Two</h3>
                     <p data-i18n="project2.desc">An innovative solution built with modern technologies and best practices.</p>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-project="3">
                     <h3 data-i18n="project3.title">Project Three</h3>
                     <p data-i18n="project3.desc">A creative endeavor that pushes the boundaries of design and technology.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-carousel">
+                <button class="carousel-btn carousel-prev" aria-label="Previous image">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-track">
+                    <img src="" alt="" class="carousel-image">
+                </div>
+                <button class="carousel-btn carousel-next" aria-label="Next image">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="carousel-dots"></div>
+            <div class="modal-text">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+
 
     <section id="contact" class="section contact">
         <div class="container">

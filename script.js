@@ -23,10 +23,13 @@ const translations = {
         'projects.title': 'Projects',
         'project1.title': 'Project One',
         'project1.desc': 'A minimalistic design project showcasing clean aesthetics and functionality.',
+        'project1.fullDesc': 'This project demonstrates the perfect balance between form and function. Created with attention to detail and a focus on user experience.',
         'project2.title': 'Project Two',
         'project2.desc': 'An innovative solution built with modern technologies and best practices.',
+        'project2.fullDesc': 'A cutting-edge application that leverages the latest web technologies to deliver an exceptional user experience.',
         'project3.title': 'Project Three',
         'project3.desc': 'A creative endeavor that pushes the boundaries of design and technology.',
+        'project3.fullDesc': 'An experimental project that explores new possibilities in digital design and interaction.',
         'contact.title': 'Get In Touch',
         'contact.text': 'Feel free to reach out for collaborations or just a friendly hello.',
         'common.website': 'Visit Website'
@@ -54,15 +57,40 @@ const translations = {
         'projects.title': 'Proiecte',
         'project1.title': 'Proiect Unu',
         'project1.desc': 'Un proiect de design minimal care prezintă estetica curată și funcționalitatea.',
+        'project1.fullDesc': 'Acest proiect demonstrează echilibrul perfect dintre formă și funcționalitate. Creat cu atenție la detalii și focus pe experiența utilizatorului.',
         'project2.title': 'Proiect Doi',
         'project2.desc': 'O soluție inovatoare construită cu tehnologii moderne și cele mai bune practici.',
+        'project2.fullDesc': 'O aplicație de ultimă generație care valorifică cele mai noi tehnologii web pentru a oferi o experiență de utilizare excepțională.',
         'project3.title': 'Proiect Trei',
         'project3.desc': 'O încercare creativă care împinge limitele designului și tehnologiei.',
+        'project3.fullDesc': 'Un proiect experimental care explorează noi posibilități în design digital și interacțiune.',
         'contact.title': 'Contactează-mă',
         'contact.text': 'Simte-te liber să mă contactezi pentru colaborări sau doar pentru un salut prietenos.',
         'common.website': 'Vizitează Site-ul'
     }
 };
+
+// Project images (carousel - multiple images per project)
+const projectImages = {
+    1: [
+        'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=450&fit=crop',
+        'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=450&fit=crop',
+        'https://images.unsplash.com/photo-1634017839464-5c339ez0f?w=800&h=450&fit=crop'
+    ],
+    2: [
+        'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=450&fit=crop',
+         'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=450&fit=crop'
+    ],
+    3: [
+        'https://images.unsplash.com/photo-1634017839464-5c339ez0f?w=800&h=450&fit=crop',
+        'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=450&fit=crop',
+        'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=450&fit=crop'
+    ]
+};
+
+// Current carousel state
+let currentCarouselIndex = 0;
+let currentProjectImages = [];
 
 // Current language
 let currentLang = 'en';
@@ -325,5 +353,119 @@ document.querySelectorAll('.skill-tag').forEach(tag => {
         }, 500);
     });
 });
+
+// 3. Project Card Modal with Carousel
+const modal = document.getElementById('projectModal');
+const modalImage = document.querySelector('.carousel-image');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalClose = document.querySelector('.modal-close');
+const carouselPrev = document.querySelector('.carousel-prev');
+const carouselNext = document.querySelector('.carousel-next');
+const carouselDots = document.querySelector('.carousel-dots');
+
+function updateCarousel() {
+    const images = currentProjectImages;
+    if (!images || images.length === 0) return;
+    
+    modalImage.src = images[currentCarouselIndex];
+    modalImage.classList.add('active');
+    
+    // Update dots
+    carouselDots.innerHTML = '';
+    images.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (index === currentCarouselIndex ? ' active' : '');
+        dot.addEventListener('click', () => {
+            currentCarouselIndex = index;
+            updateCarousel();
+        });
+        carouselDots.appendChild(dot);
+    });
+    
+    // Show/hide controls based on number of images
+    const hasMultiple = images.length > 1;
+    carouselPrev.style.display = hasMultiple ? 'flex' : 'none';
+    carouselNext.style.display = hasMultiple ? 'flex' : 'none';
+    carouselDots.style.display = hasMultiple ? 'flex' : 'none';
+}
+
+function nextImage() {
+    if (!currentProjectImages.length) return;
+    currentCarouselIndex = (currentCarouselIndex + 1) % currentProjectImages.length;
+    updateCarousel();
+}
+
+function prevImage() {
+    if (!currentProjectImages.length) return;
+    currentCarouselIndex = (currentCarouselIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+    updateCarousel();
+}
+
+carouselNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    nextImage();
+});
+
+carouselPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    prevImage();
+});
+
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const projectId = this.getAttribute('data-project');
+        const titleKey = `project${projectId}.title`;
+        const fullDescKey = `project${projectId}.fullDesc`;
+        
+        currentProjectImages = projectImages[projectId] || [];
+        currentCarouselIndex = 0;
+        
+        modalTitle.textContent = translations[currentLang][titleKey] || '';
+        modalDesc.textContent = translations[currentLang][fullDescKey] || '';
+        
+        updateCarousel();
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    currentProjectImages = [];
+}
+
+modalClose.addEventListener('click', closeModal);
+
+modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+    }
+    
+    // Carousel keyboard navigation
+    if (modal.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') {
+            prevImage();
+        } else if (e.key === 'ArrowRight') {
+            nextImage();
+        }
+    }
+});
+
+// Hide carousel controls when only 1 image
+function updateCarouselControls() {
+    const hasMultiple = currentProjectImages.length > 1;
+    carouselPrev.style.display = hasMultiple ? 'flex' : 'none';
+    carouselNext.style.display = hasMultiple ? 'flex' : 'none';
+    carouselDots.style.display = hasMultiple ? 'flex' : 'none';
+}
 
 
