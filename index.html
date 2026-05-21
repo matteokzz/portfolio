@@ -1,206 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+<html lang="en" data-theme="dark"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mihaescu Matteo — Design Portfolio</title>
+<meta name="description">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Floating Particles -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+<body class="theme-brutal">
+
+<!-- INTRO CHOOSER -->
+<div id="intro" class="intro" hidden="">
+  <div class="intro-mesh"></div>
+  <div class="intro-eyebrow">MIHAESCU MATTEO</div>
+  <h1 class="intro-title">choose your <span class="shimmer">experience.</span></h1>
+  <p class="intro-sub">Two ways to view this portfolio. You can switch anytime.</p>
+  <div class="intro-grid">
+    <button class="intro-card intro-brutal" data-pick="brutal">
+      <div class="mono">[ OPTION 01 ]</div>
+      <div class="intro-card-title-b">NEO<br>BRUTALISM</div>
+      <div class="intro-tags">
+        <span style="background:#ff66b3">LOUD</span>
+        <span style="background:#7cd9ff">CHAOTIC</span>
+        <span style="background:#b3f06b">FUNKY</span>
+      </div>
+      <p>You'll need sunglasses for this one.</p>
+      <div class="intro-cta-b">ENTER → THE POP WORLD</div>
+    </button>
+    <button class="intro-card intro-glass" data-pick="glass">
+      <div class="intro-glow"></div>
+      <div class="mono light">[ OPTION 02 ]</div>
+      <div class="intro-card-title-g">Liquid<br><em>Glass</em></div>
+      <div class="intro-tags-g">
+        <span>Premium</span><span>Soft</span><span>Minimal</span>
+      </div>
+      <p>Feeling fancy?</p>
+      <div class="intro-cta-g">Enter — The Serious Way</div>
+    </button>
+  </div>
+  <div class="intro-foot">switch anytime · top-right corner</div>
+</div>
+
+<!-- SWITCHER -->
+<div class="switcher" id="switcher">
+  <button id="themeBtn" class="sw-btn" aria-label="Toggle day/night">☾</button>
+  <button id="modeBtn" class="sw-btn sw-wide">↔ SWITCH TO glossy</button>
+  <button id="resetBtn" class="sw-btn" title="Tip: double-click to reopen the chooser anytime. Hover to see this message">⌘</button>
+</div>
+
+<!-- ============ BRUTAL MODE ============ -->
+<main id="brutal" class="mode-view mode-enter">
+  <nav class="b-nav fade-down">
+    <a href="#" class="b-logo">M/M★</a>
+    <div class="b-links">
+      <a href="#b-work">WORK</a><a href="#b-about">ABOUT</a><a href="#b-play">PLAY</a><a href="#b-contact">CONTACT</a>
     </div>
+    <br>
+  </nav>
 
-    <nav class="navbar">
-        <button class="hamburger" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-links">
-            <li><a href="#about" data-i18n="nav.about">About</a></li>
-            <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-            <li><a href="#education" data-i18n="nav.education">Education</a></li>
-            <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-        </ul>
-        <div class="nav-buttons">
-            <button class="lang-toggle" aria-label="Toggle language">
-                <span class="lang-en active">EN</span>
-                <span class="lang-sep">/</span>
-                <span class="lang-ro">RO</span>
-            </button>
-            <button class="theme-toggle" aria-label="Toggle dark/light mode">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu">
-        <ul class="mobile-nav-links">
-            <li><a href="#about" data-i18n="nav.about">About</a></li>
-            <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-            <li><a href="#education" data-i18n="nav.education">Education</a></li>
-            <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-        </ul>
-        <div class="mobile-nav-buttons">
-            <button class="lang-toggle" aria-label="Toggle language">
-                <span class="lang-en active">EN</span>
-                <span class="lang-sep">/</span>
-                <span class="lang-ro">RO</span>
-            </button>
-            <button class="theme-toggle" aria-label="Toggle dark/light mode">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
+  <section class="b-hero">
+    <div class="container">
+      <div class="b-stickers">
+        <span class="b-sticker cy bounce-in" style="--r:-4deg">● AVAILABLE</span>
+        <span class="b-sticker pk bounce-in delay-1" style="--r:3deg">BASED IN RO, BV</span>
+      </div>
+      <h1 class="b-h1">
+        <span class="line"><span class="word bounce-in delay-2">MATTEO</span></span>
+      </h1>
+      <div class="b-hero-row">
+        <p class="b-lead fade-in delay-3">I design <mark class="b-mark yl">what I like</mark> and build what <em class="b-wavy">I imagine</em>. 2 years deep in industrial design</p>
+        <div class="b-scroll spin-slow">SCROLL<br>↓ DOWN ↓<br>SCROLL</div>
+      </div>
     </div>
+    <div class="b-float float">★ PORTFOLIO 2026</div>
+  </section>
 
-    <section id="about" class="section hero">
-        <div class="container">
-            <h1 data-i18n="hero.title">Hello, I'm Matteo</h1>
-            <p class="subtitle" data-i18n="hero.subtitle">A minimalistic portfolio</p>
-            <p class="description" data-i18n="hero.description">Welcome to my portfolio website. I create clean, functional, and beautiful digital experiences.</p>
-        </div>
-    </section>
-
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 data-i18n="skills.title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 data-i18n="skills.dev">Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 data-i18n="skills.tools">Tools & Others</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Photoshop</span>
-                        <span class="skill-tag">Illustrator</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Premiere Pro</span>
-                        <span class="skill-tag">Lightroom</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 data-i18n="skills.personal">Personal</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Photography</span>
-                        <span class="skill-tag">Music Production</span>
-                        <span class="skill-tag">Photo & Video Editing</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="section education">
-        <div class="container">
-            <h2 data-i18n="education.title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Oct 2024 - Present</div>
-                    <div class="timeline-content">
-                        <h3 data-i18n="exp1.title">Industrial Design Student</h3>
-                        <p class="timeline-company" data-i18n="exp1.company">at "Transilvania" University Of Brasov</p>
-                        <p data-i18n="exp1.desc">My studies focus on developing skills in product design, creativity, and technical problem-solving, combining engineering principles with aesthetics to create functional and innovative products.</p>
-                        <a href="https://www.unitbv.ro/" target="_blank" class="timeline-button" data-i18n="common.website">Visit Website</a>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date"> Sep 2020 - Jun 2024</div>
-                    <div class="timeline-content">
-                        <h3 data-i18n="exp2.title">Mathematics & Computer Science</h3>
-                        <p class="timeline-company" data-i18n="exp2.company">at "Edmond Nicolau" Technical College</p>
-                        <p data-i18n="exp2.desc">During this time, I developed strong analytical and problem-solving skills, with a focus on mathematics, computer science, and logical thinking.</p>
-                        <a href="https://cten.ro/" target="_blank" class="timeline-button" data-i18n="common.website">Visit Website</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 data-i18n="projects.title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-project="1">
-                    <h3 data-i18n="project1.title">Project One</h3>
-                    <p data-i18n="project1.desc">A minimalistic design project showcasing clean aesthetics and functionality.</p>
-                </div>
-                <div class="project-card" data-project="2">
-                    <h3 data-i18n="project2.title">Project Two</h3>
-                    <p data-i18n="project2.desc">An innovative solution built with modern technologies and best practices.</p>
-                </div>
-                <div class="project-card" data-project="3">
-                    <h3 data-i18n="project3.title">Project Three</h3>
-                    <p data-i18n="project3.desc">A creative endeavor that pushes the boundaries of design and technology.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Modal -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="modal-carousel">
-                <button class="carousel-btn carousel-prev" aria-label="Previous image">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="carousel-track">
-                    <img src="" alt="" class="carousel-image">
-                </div>
-                <button class="carousel-btn carousel-next" aria-label="Next image">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            <div class="carousel-dots"></div>
-            <div class="modal-text">
-                <h3 id="modalTitle"></h3>
-                <p id="modalDesc"></p>
-            </div>
-        </div>
+  <div class="b-marquee pk">
+    <div class="b-marquee-track">
+      <!-- doubled for seamless loop -->
+      <span>DESIGN ◆ PHOTOSHOP ◆ LIGHTROOM ◆ ILLUSTRATOR ◆ AFTER EFFECTS ◆ TYPOGRAPHY ◆ PREMIERE ◆ FIGMA ◆ DESIGN ◆ PHOTOSHOP ◆ LIGHTROOM ◆ ILLUSTRATOR ◆ AFTER EFFECTS ◆ TYPOGRAPHY ◆ PREMIERE ◆ FIGMA </span>
+      <span>DESIGN ◆ PHOTOSHOP ◆ LIGHTROOM ◆ ILLUSTRATOR ◆ AFTER EFFECTS ◆ TYPOGRAPHY ◆ PREMIERE ◆ FIGMA ◆ DESIGN ◆ PHOTOSHOP ◆ LIGHTROOM ◆ ILLUSTRATOR ◆ AFTER EFFECTS ◆ TYPOGRAPHY ◆ PREMIERE ◆ FIGMA </span>
     </div>
+  </div>
+
+  <section id="b-about" class="container b-section b-about">
+    <div class="b-stat reveal-anim in">
+      <h2 class="reveal-anim in">ABOUT<br>THE GUY ↘</h2>
+      <p>Hi, I'm Matteo. I'm <mark class="b-mark cy">a year-2 student</mark> at <a href="https://unitbv.ro" class="b-wavy shimmer">UNITBV</a> pursuing my degree in <mark class="b-mark lm">Industrial Design.</mark> <em> - </em> BRASOV, RO</p>
+      <p>Previously,<mark class="b-mark cy">Mathemathics &amp; Informatics</mark> at <a href="https://cten.ro" class="b-wavy shimmer">CTEN</a><em> - </em> FOCSANI, RO </p>
+      <p>19 and ready for serious work.</p>
+      <br>
+      <a href="assets/resume-full.pdf" download="" class="b-cbtn lm">DOWNLOAD FULL RESUME</a>
+      <br>
+      <span class="b-stat-spacer"></span>
+      <br>
+    </div>
+    <aside>
+      <div class="b-stat yl reveal-anim">
+        <div class="mono">[ STATS ]</div>
+        <div class="b-stat-row"><span>YEARS</span><span>19</span></div>
+        <div class="b-stat-row"><span>WORK XP</span><span>0, YET</span></div>
+        <div class="b-stat-row"><span>COFFEE/DAY</span><span>INF ∞</span></div>
+        <div class="b-stat-row"><span>IDEAS/DAY</span><span>Too many*</span></div>
+        <div class="mono tiny">*bad ideas.</div>
+      </div>
+      <div class="b-stat pu reveal-anim">
+        <div class="mono">[ LANGUAGES ]</div>
+        <div class="b-now">Romanian <em>-</em> Native</div>
+        <div class="b-now">Italian <em>-</em> Native</div>
+        <div class="b-now">English <em>-</em> Fluent</div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="b-work" class="container b-section">
+    <div class="b-section-head"><h2 class="reveal-anim">SELECTED<br>PROJECTS ↘</h2><span class="mono">[ 006 PROJECTS ]</span></div>
+    <div class="b-grid">
+      <a href="#" class="b-card pk reveal-anim" style="--rot:-1deg"><div class="b-card-top"><span class="b-tag">DESIGN</span><span class="b-year">'26</span></div><div><h3>1</h3><div class="mono arrow">→ VIEW CASE</div></div></a>
+      <a href="#" class="b-card lm reveal-anim" style="--rot:1deg"><div class="b-card-top"><span class="b-tag">DESIGN</span><span class="b-year">'26</span></div><div><h3>2</h3><div class="mono arrow">→ VIEW CASE</div></div></a>
+      <a href="#" class="b-card cy reveal-anim" style="--rot:-1deg"><div class="b-card-top"><span class="b-tag">DESIGN</span><span class="b-year">'26</span></div><div><h3>3</h3><div class="mono arrow">→ VIEW CASE</div></div></a>
+      <a href="#" class="b-card or reveal-anim" style="--rot:1deg"><div class="b-card-top"><span class="b-tag">DESIGN</span><span class="b-year">'26</span></div><div><h3>4</h3><div class="mono arrow">→ VIEW CASE</div></div></a>
+      <a href="#" class="b-card pu reveal-anim" style="--rot:-1deg"><div class="b-card-top"><span class="b-tag">DESIGN</span><span class="b-year">'26</span></div><div><h3>5</h3><div class="mono arrow">→ VIEW CASE</div></div></a>
+      <a href="#" class="b-card yl reveal-anim" style="--rot:1deg"><div class="b-card-top"><span class="b-tag">DESIGN</span><span class="b-year">'26</span></div><div><h3>6</h3><div class="mono arrow">→ VIEW CASE</div></div></a>
+    </div>
+  </section>
+
+  <div class="b-marquee lm">
+    <div class="b-marquee-track">
+      <span>★ WORK ★ PLAY ★ REPEAT ★ WORK ★ PLAY ★ REPEAT ★ WORK ★ PLAY ★ REPEAT ★ </span>
+      <span>★ WORK ★ PLAY ★ REPEAT ★ WORK ★ PLAY ★ REPEAT ★ WORK ★ PLAY ★ REPEAT ★ </span>
+    </div>
+  </div>
+
+  <section id="b-play" class="b-play" hidden="">
+    <div class="container">
+      <h2>EXPERIMENTS ↘</h2>
+      <div class="b-play-grid">
+        <button class="reveal-anim"><span class="big">▓▒░</span><div><div class="mono">[ 01 ]</div><div class="t">1</div></div></button>
+        <button class="reveal-anim"><span class="big">Aa</span><div><div class="mono">[ 02 ]</div><div class="t">2</div></div></button>
+        <button class="reveal-anim"><span class="big">♪♫</span><div><div class="mono">[ 03 ]</div><div class="t">3</div></div></button>
+        <button class="reveal-anim"><span class="big">??</span><div><div class="mono">[ 04 ]</div><div class="t">4</div></div></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="b-contact" class="container b-contact">
+    <h2 class="b-contact-h reveal-anim">LET'S MAKE<br><span class="b-some">SOMETHING</span><br><em>REAL.</em></h2>
+    <p>Got a project, an idea, or just want to argue about typography? Pick a button.</p>
+    <div class="b-cbtns">
+      <a href="mailto:mihaescumatteo@gmail.com" class="b-cbtn lm">✉ EMAIL ME</a>
+      <a href="https://instagram.com/matteokzz" class="b-cbtn or">✦ INSTAGRAM</a>
+    </div>
+    <div class="b-replies wiggle">REPLIES WITHIN 24H</div>
+  </section>
+
+  <footer class="b-footer">
+    <div>© 2026 MIHAESCU MATTEO</div>
+    <a href="#" class="b-top">↑ TOP</a>
+  </footer>
+</main>
+
+<!-- ============ GLASS MODE ============ -->
+<main id="glass" class="mode-view" hidden="">
+  <div class="g-mesh"></div>
+
+  <nav class="g-nav fade-down">
+    <div class="g-nav-inner glass">
+      <a href="#" class="g-logo">Mihaescu Matteo</a>
+      <div class="g-links">
+        <a href="#g-work">Work</a><a href="#g-about">About</a><a href="#g-play">Exp</a><a href="#g-contact">Contact</a>
+      </div>
+      
+    </div>
+  </nav>
+
+  <section class="g-hero">
+    <div class="g-hero-inner">
+      <div class="g-chip glass fade-in"><span class="g-dot"></span>Available · 2026</div>
+      <h1 class="g-h1">
+        <span class="g-line"><span class="g-word reveal reveal-anim">Mihăescu</span></span>
+        <span class="g-line"><span class="g-word reveal delay-2 reveal-anim"><em>Matteo</em></span></span>
+      </h1>
+      <p class="g-lead fade-in delay-3">Designer &amp;<span class="shimmer"> Student</span>, 19 </p>
+      <div class="g-cta-row fade-in delay-4">
+        <a href="#g-work" class="g-btn glass">View selected projects</a>
+        <a href="#g-contact" class="g-btn solid">Contact me →</a>
+      </div>
+    </div>
+    <div class="g-orb g-orb-1 float glass">✦</div>
+    <div class="g-orb g-orb-2 float-rev glass"><em>06'</em></div>
+  </section>
+
+  <section id="g-about" class="g-section g-about">
+    <div>
+      <div class="g-eyebrow">About</div>
+      <h2 class="g-h2 reveal-anim">A studio of <em>one.</em></h2>
+      <div class="g-about-body">
+        <p class="reveal-anim">I'm Matteo — currently pursuing my degree in Industrial Design,<em> Second Year</em></p>
+        <p class="reveal-anim">For the last two years I've moved between CAD Softwares, Concept Design, and developing my love for adding a meaning to all the shapes and colors I lay down. I care about typography, freedom, and the small details nobody notices.</p>
+        <p class="dim reveal-anim">Currently searching for a company that will add meaning to me as well.</p>
+
+        <a href="assets/resume-full.pdf" download="" class="g-btn glass">Download full resume. ✦</a>
+      </div>
+    </div>
+    <aside>
+      <div class="g-panel glass reveal-anim">
+        <div class="g-eyebrow">By the numbers</div>
+        <div class="g-num"><span>Years </span><b>19</b></div>
+        <div class="g-num"><span>Work Experience</span><b>0, Yet</b></div>
+        <div class="g-num"><span>Coffee/day</span><b>Infinite</b></div>
+        <div class="g-num"><span>Ideas/day</span><b>Too many.</b></div>
+      </div>
+      <div class="g-panel glass reveal-anim">
+        <div class="g-eyebrow">Languages</div>
+        <div class="g-now">Romanian <em>- Native</em></div>
+          <div class="g-now">Italian <em>- Native</em></div>
+          <div class="g-now">English <em>- Fluent (B2)</em></div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="g-work" class="g-section">
+    <div class="g-section-head">
+      <div><div class="g-eyebrow">Selected ·</div><h2 class="g-h2 reveal-anim">Recent <em>Projects</em></h2></div>
+      <div class="g-chapters">✦</div>
+    </div>
+    <div class="g-grid">
+      <a class="g-card glass reveal-anim" href="#" style="--hue:250"><div class="g-card-glow"></div><div class="g-card-top"><span class="g-tag glass">DESIGN</span><span class="g-year">2026</span></div><div><h3>1</h3><div class="g-view">  /View</div></div></a>
+      <a class="g-card glass reveal-anim" href="#" style="--hue:320"><div class="g-card-glow"></div><div class="g-card-top"><span class="g-tag glass">DESIGN</span><span class="g-year">2026</span></div><div><h3>2</h3><div class="g-view">  /View</div></div></a>
+      <a class="g-card glass reveal-anim" href="#" style="--hue:180"><div class="g-card-glow"></div><div class="g-card-top"><span class="g-tag glass">DESIGN</span><span class="g-year">2026</span></div><div><h3>3</h3><div class="g-view">  /View</div></div></a>
+      <a class="g-card glass reveal-anim" href="#" style="--hue:30"><div class="g-card-glow"></div><div class="g-card-top"><span class="g-tag glass">DESIGN</span><span class="g-year">2026</span></div><div><h3>4</h3><div class="g-view">  /View</div></div></a>
+      <a class="g-card glass reveal-anim" href="#" style="--hue:290"><div class="g-card-glow"></div><div class="g-card-top"><span class="g-tag glass">DESIGN</span><span class="g-year">2026</span></div><div><h3>5</h3><div class="g-view">  /View</div></div></a>
+      <a class="g-card glass reveal-anim" href="#" style="--hue:200"><div class="g-card-glow"></div><div class="g-card-top"><span class="g-tag glass">DESIGN</span><span class="g-year">2026</span></div><div><h3>6</h3><div class="g-view">  /View</div></div></a>
+    </div>
+  </section>
+
+  <section id="g-play" class="g-section" hidden="">
+    <div class="g-eyebrow">Playground</div>
+    <h2 class="g-h2 reveal-anim">Side <em>experiments.</em></h2>
+    <div class="g-play-grid">
+      <button class="glass reveal-anim"><div class="g-num-sm">01</div><div class="g-play-t">Generative</div><div class="g-play-s">Code as canvas</div></button>
+      <button class="glass reveal-anim"><div class="g-num-sm">02</div><div class="g-play-t">Type loops</div><div class="g-play-s">Letters in motion</div></button>
+      <button class="glass reveal-anim"><div class="g-num-sm">03</div><div class="g-play-t">Audio viz</div><div class="g-play-s">Sound becomes shape</div></button>
+      <button class="glass reveal-anim"><div class="g-num-sm">04</div><div class="g-play-t">Lost pages</div><div class="g-play-s">404s with a soul</div></button>
+    </div>
+  </section>
+
+  <section id="g-contact" class="g-section g-contact">
+    <h2 class="g-contact-h reveal-anim">Let's make<br><span class="shimmer"><em>something real.</em></span></h2>
+    <p>Have a brief, an idea, or just want to talk typography? I read every message.</p>
+    <div class="g-cbtns">
+      <a href="mailto:mihaescumatteo@gmail.com" class="g-btn glass">✉ mihaescumatteo@gmail.com</a>
+      <a href="https://instagram.com/matteokzz" class="g-btn glass">Instagram</a>
+    </div>
+    <div class="g-replies reveal-anim">Replies within 24h · Romania / remote</div>
+  </section>
+
+  <footer class="g-footer">
+    <div>© 2026 Mihaescu Matteo</div>
+    <a href="#" class="g-btn glass small">↑ Back to the top</a>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var b=document.body, intro=document.getElementById('intro'),
+      brutal=document.getElementById('brutal'), glass=document.getElementById('glass'),
+      sw=document.getElementById('switcher'), tBtn=document.getElementById('themeBtn'),
+      mBtn=document.getElementById('modeBtn'), rBtn=document.getElementById('resetBtn'),
+      root=document.documentElement;
+  function apply(mode){
+    if(!mode){ intro.hidden=false; brutal.hidden=true; glass.hidden=true; sw.hidden=true; b.className='theme-'+(b.classList.contains('theme-glass')?'glass':'brutal'); return; }
+    intro.hidden=true; sw.hidden=false;
+    brutal.hidden=mode!=='brutal'; glass.hidden=mode!=='glass';
+    b.classList.remove('theme-brutal','theme-glass'); b.classList.add('theme-'+mode);
+    mBtn.textContent = mode==='glass' ? '↔ switch to NEO' : '↔ SWITCH TO glossy';
+    mBtn.classList.toggle('glass', mode==='glass');
+    tBtn.classList.toggle('glass', mode==='glass');
+    rBtn.classList.toggle('glass', mode==='glass');
+    // fade in
+    var v = mode==='glass'?glass:brutal;
+    v.classList.remove('mode-enter'); void v.offsetWidth; v.classList.add('mode-enter');
+  }
+  function applyTheme(t){ root.setAttribute('data-theme',t); tBtn.textContent = t==='dark'?'☾':'☀'; localStorage.setItem('mm_theme',t); }
+  document.querySelectorAll('[data-pick]').forEach(function(el){
+    el.addEventListener('click',function(){ var m=el.getAttribute('data-pick'); localStorage.setItem('mm_mode',m); apply(m); });
+  });
+  mBtn.addEventListener('click',function(){ var cur=localStorage.getItem('mm_mode')||'brutal'; var n=cur==='glass'?'brutal':'glass'; localStorage.setItem('mm_mode',n); apply(n); });
+  tBtn.addEventListener('click',function(){ var cur=root.getAttribute('data-theme')||'light'; applyTheme(cur==='dark'?'light':'dark'); });
+  rBtn.addEventListener('click',function(){ localStorage.removeItem('mm_mode'); location.reload(); });
+  // Always show the intro on reload
+  localStorage.removeItem('mm_mode');
+
+  applyTheme(localStorage.getItem('mm_theme')||'light');
+  apply(null);
+  // scroll-reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15});
+  document.querySelectorAll('.reveal, .g-card, .g-panel, .g-play-grid button, .b-card, .b-stat, .b-play-grid button, .g-section h2, .g-about-body p, .g-contact-h, .g-replies, .b-section h2, .b-contact-h').forEach(function(el){el.classList.add('reveal-anim'); io.observe(el);});
+})();
+</script>
 
 
-
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 data-i18n="contact.title">Get In Touch</h2>
-            <p data-i18n="contact.text">Feel free to reach out for collaborations or just a friendly hello.</p>
-            <div class="social-links">
-                <a href="https://instagram.com/matteokzz" target="_blank" class="social-icon" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/matteo-mihaescu-84114937b/" target="_blank" class="social-icon" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:mihaescumatteo@email.com" class="social-icon" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Matteo. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+</body></html>
